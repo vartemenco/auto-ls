@@ -10,7 +10,7 @@ if [[ $#AUTO_LS_COMMANDS -eq 0 ]]; then
 fi
 
 auto-ls-ls () {
-  ls
+  exa --group-directories-first
   [[ $AUTO_LS_NEWLINE != false ]] && echo ""
 }
 
