@@ -9,6 +9,15 @@ if [[ $#AUTO_LS_COMMANDS -eq 0 ]]; then
   AUTO_LS_COMMANDS=(ls git-status)
 fi
 
+if (( ! ${+AUTO_LS_NEWLINE} )); then
+  AUTO_LS_NEWLINE=true
+fi
+
+if (( ! ${+AUTO_LS_PATH} )); then
+  AUTO_LS_PATH=true
+fi
+
+
 auto-ls-ls () {
   exa --group-directories-first
   [[ $AUTO_LS_NEWLINE != false ]] && echo ""
@@ -38,6 +47,7 @@ auto-ls () {
         auto-ls-$cmd
       fi
     done
+    zle && zle .accept-line
   fi
 
   # Forward this event down the ZLE stack
