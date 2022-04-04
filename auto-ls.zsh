@@ -19,7 +19,7 @@ fi
 
 
 auto-ls-ls () {
-  if [[ command -v exa &> /dev/null]]; then
+  if (( $+commands[exa] )); then
     exa --group-directories-first
   else
     ls
