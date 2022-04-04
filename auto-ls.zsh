@@ -19,7 +19,11 @@ fi
 
 
 auto-ls-ls () {
-  exa --group-directories-first
+  if ! command -v exa &> /dev/null then
+    ls
+  else
+    exa --group-directories-first
+  fi
   [[ $AUTO_LS_NEWLINE != false ]] && echo ""
 }
 
