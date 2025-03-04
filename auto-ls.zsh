@@ -19,8 +19,8 @@ fi
 
 
 auto-ls-ls () {
-  if (( $+commands[exa] )); then
-    exa --group-directories-first
+  if (( $+commands[eza] )); then
+    eza --group-directories-first
   else
     ls
   fi
